@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Rectangulos en Canvas</title>
+	<style>
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script src="js/jquery.js"></script>
+</head>
+<body>
+	<canvas id="lienzo"></canvas>
+	<br>
+	<button id="btn_limpia">Limpiar canvas</button>
+	<script>
+
+				function creaRectangulos(canvas,ctx){
+
+					var x = 20, y = 20, ancho = 30, alto = 30; 
+
+					ctx.fillRect(x,y,ancho,alto);
+
+					ctx.strokeRect(x+40,y+40,ancho,alto);
+
+				}
+
+				function limpiaRectangulos(canvas,ctx){
+					ctx.clearRect(0,0,canvas.width,canvas.height);
+				}
+
+		$(window).load(function() {
+			/* Act on the event */			
+			//----------------------------------------------------------
+				//toma el canvas lienzo
+				var canvas = document.getElementById("lienzo");
+				var ctx = canvas.getContext('2d');
+
+				/*
+				para los rectangulos hay 3 metodos
+				fillRect(x,y,ancho,alto) -> crea rectangulos con relleno
+				strokeRect(x,y,ancho,alto) -> crea rectangulos sin relleno
+				clearRect(x,y,ancho,alto) -> limpia la zona del rectangulo
+				*/
+
+				creaRectangulos(canvas,ctx);
+
+				$("#btn_limpia").click(function(event) {
+					/* Act on the event */
+					limpiaRectangulos(canvas,ctx);
+				});				
+			//----------------------------------------------------------
+		});
+	</script>
+</body>
+</html>
