@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Game</title>
+	<style>
+		canvas {
+			border: 1px solid black;
+		}
+	</style>
+	<script src="js/jquery.js"></script>
+</head>
+<body>
+	<canvas id="lienzo"></canvas>
+
+	<script>
+		$(window).load(function() {
+			/* Act on the event */
+			console.log('juego cargado!...');
+			//----------------------------------------------------------
+				//toma el canvas lienzo
+				var canvas = document.getElementById("lienzo");
+				console.log(canvas);
+
+				//toma el contexto en 2 dimensiones del lienzo
+				var ctx = canvas.getContext('2d');
+				console.log(ctx);
+
+				//para cambiar el color se hace con el metodo fillStyle()
+				ctx.fillStyle = "red";
+
+				//para dibujar un rectangulo en el lienzo se hace desde
+				//el contexto del canvas con el metodo fillRect()
+				//parametros coordenadas los 2 primeros, los 2 numero siguientes 
+				//son el tamaño.
+
+				ctx.fillRect(20,20,50,50);
+
+				//++++++++++++++++++++++++++++++++++++++++++++++++++++++
+				//para dibujar triangulo sin bordes va con fillStroke()
+				ctx.strokeStyle = "blue";
+				ctx.strokeRect(90,90,50,50);
+
+				//++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+			//----------------------------------------------------------
+		});
+	</script>
+</body>
+</html>
